@@ -5,17 +5,16 @@ class penjualan extends CI_Controller{
         parent::__construct();
         $this->load->model('model_barang');
         $this->load->model('model_transaksi');
-        check_session();
+        
     }
 
     function index(){
 
-        if($_SESSION['level']==0)
-        {
+       
             $this->load->library('pagination');
             $config['base_url'] = base_url().'index.php/penjualan/index/';
             $config['total_rows'] = $this->model_barang->tampil_data()->num_rows();
-            $config['per_page'] = 4; 
+            $config['per_page'] = 12; 
             $this->pagination->initialize($config); 
             $data['paging']     =$this->pagination->create_links();
             $halaman            =  $this->uri->segment(3);
@@ -23,24 +22,24 @@ class penjualan extends CI_Controller{
             $data['databarang']     =    $this->model_barang->tampilkan_data_paging($config,$halaman);
             $data['terlaris']   = $this->model_barang->baranglaris();
             $this->template->load('template1','userinterface/penjualan',$data);
-        }
-        else
-        {
-            redirect('login');
-        }
+      
         
        
     }
 
     function stokbarang()
-    {
-       $id=$this->input->post('id');
-       $data= $this->model_barang->tampil_datastok($id)->result();
-       echo json_encode($data);
+    {  if (check_session())
+        {
+            $id=$this->input->post('id');
+            $data= $this->model_barang->tampil_datastok($id)->result();
+            echo json_encode($data);
+        }
+        
+      
     }
 
     function penjualan_offline(){
-
+        check_session();
         if($_SESSION['level']==1)
         {
         $data['record']=$this->model_barang->tampil_data();
@@ -64,28 +63,35 @@ class penjualan extends CI_Controller{
 
 
     function post_penjualan()
-    {
-        $id= $this->input->post('id_barang');
-        $jml= $this->input->post('jumlah');
-        if($_SESSION['level']==1)
+    { if(check_session())
         {
-           
-            $data= $this->model_barang->tampil_data_by_id($id);
-            $harga= $data->harga_jual; 
-            $total= $harga * $jml;
-            $datatransaksi = array('id'=>$id,'jml'=>$jml,'hrg'=>$harga,'total'=>$total);
-            $jmlchart = $this->model_transaksi->insertdetailadmin($datatransaksi);
-           
+            $id= $this->input->post('id_barang');
+            $jml= $this->input->post('jumlah');
+            if($_SESSION['level']==1)
+            {
+               
+                $data= $this->model_barang->tampil_data_by_id($id);
+                $harga= $data->harga_jual; 
+                $total= $harga * $jml;
+                $datatransaksi = array('id'=>$id,'jml'=>$jml,'hrg'=>$harga,'total'=>$total);
+                $jmlchart = $this->model_transaksi->insertdetailadmin($datatransaksi);
+               
+            }
+            else
+            {
+                    $data= $this->model_barang->tampil_data_by_id($id);
+                    $harga= $data->harga_jual;
+                    $total= $harga * $jml;
+                    $datatransaksi = array('id'=>$id,'jml'=>$jml,'hrg'=>$harga,'total'=>$total);
+                    $jmlchart = $this->model_transaksi->insertdetail($datatransaksi);
+                    //redirect("penjualan");
+            }
         }
         else
         {
-                $data= $this->model_barang->tampil_data_by_id($id);
-                $harga= $data->harga_jual;
-                $total= $harga * $jml;
-                $datatransaksi = array('id'=>$id,'jml'=>$jml,'hrg'=>$harga,'total'=>$total);
-                $jmlchart = $this->model_transaksi->insertdetail($datatransaksi);
-                //redirect("penjualan");
+            redirect('login');
         }
+       
       
     }
     

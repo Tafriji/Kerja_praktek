@@ -81,15 +81,16 @@
 <script >
  function belibarang(id)
  {
-    getstok(id);
-    var jumlah= parseInt($('#'+id+'J').val());
-     var stok = parseInt($('#'+id).val());
-     if(jumlah>stok)
-     {
-         alert("STOK BARANG TIDAK MENCUKUPI");
-         //alert(stok+" "+jumlah);
-     }
-     else{
+    <?php if(isset($_SESSION["userdata"]->id_member)){?>
+        getstok(id);
+        var jumlah= parseInt($('#'+id+'J').val());
+        var stok = parseInt($('#'+id).val());
+        if(jumlah>stok)
+        {
+            alert("STOK BARANG TIDAK MENCUKUPI");
+            //alert(stok+" "+jumlah);
+        }
+        else{
         $.ajax({
         url  :"<?php echo base_url('penjualan/post_penjualan');?>",
         type : 'POST',
@@ -97,13 +98,18 @@
             jumlah : jumlah, 
             id_barang : id
         },
-         success : function(data)
+            success : function(data)
         {
-              total();
-              getstok(id);
+                total();
+                getstok(id);
         }
-     })
-     }
+        })
+        }  
+     <?php } else {?>
+     
+         window.location="<?php echo base_url().'login'?>";
+     <?php } ?>
+    
  }
 
  

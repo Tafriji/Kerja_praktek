@@ -479,7 +479,7 @@ class transaksi extends ci_controller{
     function get_data_transaksi_by_id()
     {
         $datatransaksi['record']=$this->model_transaksi->tampiltransaksibyidonline();
-        $this->template->load('template','userinterface/riwayatpembelian',$datatransaksi);
+        $this->template->load('template1','userinterface/riwayatpembelian',$datatransaksi);
     }
 
     function bydatepdf($tanggal1,$tanggal2)
@@ -582,15 +582,9 @@ class transaksi extends ci_controller{
 
     function pembayaran()
     {
-        if($_SESSION['level']==0)
-        {
+        
             $hasil['data'] = $this->model_transaksi->tampiltransaksibyidonlinepending()->result();
             $this->template->load('template1','transaksi/form_pembayaran',$hasil);
-        }
-        else
-        {
-            redirect('auth/login');
-        }
       
     }
 

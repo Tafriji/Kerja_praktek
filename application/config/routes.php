@@ -38,11 +38,11 @@
 |
 */
 
-$route['default_controller'] = "auth/loginuser";
+$route['default_controller'] = "penjualan";
 $route['logout']="auth/logout";
 $route['penjualanOffline']="penjualan/penjualan_offline";
 $route['admin']="auth/login";
-//$route['login']="auth/loginuser";
+$route['login']="auth/loginuser";
 $route['404_override'] = '';
 
 /* End of file routes.php */

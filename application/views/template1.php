@@ -58,18 +58,9 @@
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                        <?php 
-                        if ($_SESSION['level'] == 1)
-                        {?>
-                        <img style="width:80%;margin-top:10px;" src="<?php echo base_url(); ?>/assets/img/admin.png" alt="homepage" class="dark-logo" />
-                        <?php
-                        }
-                        else
-                        {?>
+                     
                         <img style="width:80%;margin-top:10px;" src="<?php echo base_url(); ?>/assets/img/member.png" alt="homepage" class="dark-logo" />
-                         <?php
-                         }
-                         ?>
+                         
                         </span>
                     </a>
 
@@ -98,18 +89,14 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <?php 
-                      if ($_SESSION['level'] == 1)
+                      if (!isset($_SESSION['userdata']->id_member))
                       {?>
-           
-				
-                      <li><button style="margin-top: 6px; margin-right:5px;background-color:deeppink" id="pesan_sedia"  class='btn btn-primary' data-toggle="modal" data-target="#modalpesan" onclick="pesan()" ><span class='glyphicon glyphicon-comment'></span>  Pesan <span class="badge" id="chartpending"></span></button></li>
-                      <li class="dropdown">
-                        <button style="margin-top: 6px; margin-right:15px;" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hy , <?php echo $_SESSION["userdata"]->id_user;?> &nbsp<span class="glyphicon glyphicon-user"></span>
+                        <li><button  style="margin-top: 6px; margin-right:5px;background-color:deeppink" class='btn btn-primary'  onclick="page('14')" > DAFTAR <span class='glyphicon glyphicon-user'></span>  </button></li>
+                        <!-- <li><button  style="margin-top: 6px; margin-right:5px;background-color:deeppink" class='btn btn-primary' id="confirmpesan" href="chat.php" data-toggle="modal" data-target="#modalpesan"><span class='glyphicon glyphicon-comment'></span>  Pesan  </button></li> -->
+                        <li class="dropdown">
+                        <button style="margin-top: 6px; margin-right:15px;" onclick="page('15')" class="btn btn-primary" type="button" >LOGIN<span class="glyphicon glyphicon-user"></span>
                         <span class="caret"></span></button>
-                        <ul class="dropdown-menu" style="background-color: red;border-radius: 7px;min-width: 90%;">
-                            <li><a style="color:white;" href="<?php echo base_url().'logout'?>">Keluar</a></li>
-                        </ul>
-                      </li>
+                        </li>
 
                       <?php
                       }
@@ -215,8 +202,9 @@
        
 
 <script type="text/javascript">
+<?php if(isset($_SESSION["userdata"]->id_member)){?>
 window.onload=total('<?php echo $_SESSION['level']?>');
-
+<?php }?>
 function validate(evt) {
   var theEvent = evt || window.event;
 
@@ -347,6 +335,7 @@ function getpreview()
 
 function getpreviewpembelian()
  {
+     
      $.ajax({
         url  :"<?php echo base_url('pembelian/tampilpembelianbarang');?>",
         type : 'POST',
@@ -480,19 +469,21 @@ var index= parseInt(a);
     case 13:
     window.location="<?php  echo base_url().'penjualan/chart'?>";
         break;
+    case 14:
+    window.location="<?php  echo base_url().'auth/daftaruser'?>";
+        break;
+    case 15:
+    window.location="<?php  echo base_url().'login'?>";
+        break;
 }
 }
 
 
 
 </script>
-
- <?php
-    if ($_SESSION['level'] == 1)
-    {
+   
     include "modal_pesan.php";
-    }
-    ?>
+    
 </body>
 
 </html>
