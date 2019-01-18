@@ -12,6 +12,7 @@ class Barang extends CI_Controller{
 
     function index()
     {     
+        
         if($_SESSION['level']==1)
         {
         $this->load->library('pagination');
