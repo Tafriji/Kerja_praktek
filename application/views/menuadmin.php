@@ -1,7 +1,7 @@
 <ul id="sidebarnav" class="in">
                 <li data-toggle="collapse" data-target="#menumaster">
                     <a href="#" style="color : white"><i style="color:white;" class="fa fa fa-credit-card"></i>
-                    <span class="hide-menu dropdown-toggle "> MASTER DATA</span><a>
+                    <span class="hide-menu dropdown-toggle "> MASTER DATA</span></a>
                 </li>
         </ul>
             <div id="menumaster" class="collapse" style="background-color:#1c2128; list-style:none; padding-left:40px; ">
@@ -30,7 +30,7 @@
         <ul id="sidebarnav" class="in">
                 <li data-toggle="collapse" data-target="#menutransaksi">
                     <a href="#" style="color : white"><i style="color:white;" class="fa fa fa-credit-card"></i>
-                    <span class="hide-menu dropdown-toggle "> TRANSAKSI</span><a>
+                    <span class="hide-menu dropdown-toggle "> TRANSAKSI</span></a>
                 </li>
         </ul>
             <div id="menutransaksi" class="collapse" style="background-color:#1c2128; list-style:none; padding-left:40px; ">
@@ -60,7 +60,7 @@
         <ul id="sidebarnav" class="in">
                 <li data-toggle="collapse" data-target="#menulaporan">
                     <a href="#" style="color : white"><i style="color:white;" class="fa fa fa-credit-card"></i>
-                    <span class="hide-menu dropdown-toggle "> LAPORAN</span><a>
+                    <span class="hide-menu dropdown-toggle "> LAPORAN</span></a>
                 </li>
         </ul>
             <div id="menulaporan" class="collapse" style="background-color:#1c2128; list-style:none; padding-left:40px; ">

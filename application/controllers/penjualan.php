@@ -12,7 +12,7 @@ class penjualan extends CI_Controller{
 
        
             $this->load->library('pagination');
-            $config['base_url'] = base_url().'index.php/penjualan/index/';
+            $config['base_url'] = base_url().'penjualan/index/';
             $config['total_rows'] = $this->model_barang->tampil_data()->num_rows();
             $config['per_page'] = 12; 
             $this->pagination->initialize($config); 
@@ -42,7 +42,15 @@ class penjualan extends CI_Controller{
         check_session();
         if($_SESSION['level']==1)
         {
-        $data['record']=$this->model_barang->tampil_data();
+            $this->load->library('pagination');
+            $config['base_url'] = base_url().'penjualan/penjualan_offline/';
+            $config['total_rows'] = $this->model_barang->tampil_data()->num_rows();
+            $config['per_page'] = 6; 
+            $this->pagination->initialize($config); 
+            $data['paging']     =$this->pagination->create_links();
+            $halaman            =  $this->uri->segment(3);
+            $halaman            =$halaman==''?0:$halaman-1;
+            $data['record']     =    $this->model_barang->tampilkan_data_paging($config,$halaman);
         $this->template->load('template','POS/lihat_data',$data);
         }
         else
