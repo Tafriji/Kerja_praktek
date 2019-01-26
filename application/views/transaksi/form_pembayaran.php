@@ -1,7 +1,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h2 class="page-header">
-                            TOKO LINTANG <br>Pembayaran (No Rekening xxxxxxxxxxxxxxxxxx)
+                            TOKO LINTANG <br>Pembayaran (BCA 2500445648/Khusnul Khotimah)
                         </h2>
                     </div>
                 </div> 
