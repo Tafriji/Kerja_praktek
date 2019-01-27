@@ -2,7 +2,7 @@
 <li class="nav-item active">
 <a class="nav-link" href="<?php echo base_url().'penjualan/penjualan_offline'?>">
     <i class="fa fa-dashboard"></i> 
-    <p>Point Of Sale</p>
+    <p>Penjualan Ofline</p>
     </a>
 </li>
 <li class="nav-item active">

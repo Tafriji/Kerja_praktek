@@ -41,7 +41,7 @@
             <div id="menutransaksi" class="collapse" style="background-color:#1c2128; list-style:none; padding-left:40px; ">
                         <li class="sidebar_nav sidebarnew" style="padding:10px; ">
                             <a  onclick="page('2')"href="#" style="color : white"><i style="color:white;"></i>
-                                <span class="hide-menu"> Point Of Sale</span>
+                                <span class="hide-menu"> Penjualan Ofline</span>
                             </a>
                         </li>
                         <li class="sidebar_nav sidebarnew" style="padding:10px;">
