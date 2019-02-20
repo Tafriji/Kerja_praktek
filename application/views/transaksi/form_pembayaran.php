@@ -2,6 +2,7 @@
                     <div class="col-md-12">
                         <h2 class="page-header">
                             TOKO LINTANG <br>Pembayaran (BCA 2500445648/Khusnul Khotimah)
+                            <br>Contact/WhatsApp (0815-4875-5044)
                         </h2>
                     </div>
                 </div> 
