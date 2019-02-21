@@ -172,7 +172,7 @@ class transaksi extends ci_controller{
         $pdf->SetFontSize(16);
         $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
         $pdf->text(9, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PENJUALAN OLINE',0,1,'C');
+        $pdf->text(7, 2.7,'LAPORAN PENJUALAN ONLINE',0,1,'C');
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(12);
         $pdf->setLineWidth(0.05);
