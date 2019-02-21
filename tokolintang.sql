@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jan 2019 pada 07.08
+-- Waktu pembuatan: 21 Feb 2019 pada 02.56
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 5.6.38
 
@@ -44,28 +44,27 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`, `harga`, `harga_jual`, `foto`) VALUES
-('BRG001', 'Piyama Anak 1', 'KTG001', 'Risqi', 24, 30000, 40000, 'gambar_barang/bajuanakpiyama40rb.jpg'),
+('BRG001', 'Piyama Anak 1', 'KTG001', 'Risqi', 19, 30000, 40000, 'gambar_barang/bajuanakpiyama40rb.jpg'),
 ('BRG002', 'Celana Joger Anak 1', 'KTG002', 'Diana', 36, 10000, 17000, 'gambar_barang/celana_anak_joger1_17rb.jpg'),
-('BRG003', 'Celana Joger Anak 2', 'KTG002', 'Diana', 36, 10000, 17000, 'gambar_barang/celana_anak_joger2_17rb.jpg'),
-('BRG004', 'Celana Joger Anak 3', 'KTG002', 'Diana', 36, 10000, 17000, 'gambar_barang/celana_anak_joger3_17rb.jpg'),
-('BRG005', 'Celana Joger Anak 4', 'KTG002', 'Diana', 36, 10000, 17000, 'gambar_barang/celana_anak_joger4_17rb.jpg'),
-('BRG006', 'Daster Anak 1', 'KTG001', 'Risqi', 18, 12000, 20000, 'gambar_barang/daster_anak1_20rb.jpg'),
-('BRG007', 'Daster Anak 2', 'KTG001', 'Risqi', 18, 12000, 20000, 'gambar_barang/daster_anak2_20rb.jpg'),
-('BRG008', 'Daster Anak 3', 'KTG001', 'Risqi', 20, 12000, 20000, 'gambar_barang/daster_anak3_20rb.jpg'),
+('BRG003', 'Celana Joger Anak 2', 'KTG002', 'Diana', 35, 10000, 17000, 'gambar_barang/celana_anak_joger2_17rb.jpg'),
+('BRG004', 'Celana Joger Anak 3', 'KTG002', 'Diana', 35, 10000, 17000, 'gambar_barang/celana_anak_joger3_17rb.jpg'),
+('BRG005', 'Celana Joger Anak 4', 'KTG002', 'Diana', 35, 10000, 17000, 'gambar_barang/celana_anak_joger4_17rb.jpg'),
+('BRG006', 'Daster Anak 1', 'KTG001', 'Risqi', 17, 12000, 20000, 'gambar_barang/daster_anak1_20rb.jpg'),
+('BRG007', 'Daster Anak 2', 'KTG001', 'Risqi', 16, 12000, 20000, 'gambar_barang/daster_anak2_20rb.jpg'),
+('BRG008', 'Daster Anak 3', 'KTG001', 'Risqi', 19, 12000, 20000, 'gambar_barang/daster_anak3_20rb.jpg'),
 ('BRG009', 'Kaos Anak Tayo 1', 'KTG004', 'Tutu', 12, 10000, 17000, 'gambar_barang/kaos_anak_tayo1_17rb.jpg'),
 ('BRG010', 'Kaos Anak Tayo 2', 'KTG004', 'Tutu', 12, 10000, 17000, 'gambar_barang/kaos_anak_tayo2_17rb.jpg'),
-('BRG011', 'Kaos Anak Tayo 3', 'KTG004', 'Tutu', 12, 10000, 17000, 'gambar_barang/kaos_anak_tayo3_17rb.jpg'),
+('BRG011', 'Kaos Anak Tayo 3', 'KTG004', 'Tutu', 10, 10000, 17000, 'gambar_barang/kaos_anak_tayo3_17rb.jpg'),
 ('BRG012', 'Kaos Anak Tayo 4', 'KTG004', 'Tutu', 12, 10000, 17000, 'gambar_barang/kaos anak tayo4 17rb.jpg'),
 ('BRG013', 'Kaos Anak Tayo 5', 'KTG004', 'Tutu', 12, 10000, 17000, 'gambar_barang/kaos_anak_tayo5_17rb.jpg'),
 ('BRG014', 'Rok Anak 1', 'KTG005', 'Putri', 22, 15000, 25000, 'gambar_barang/rok_anak_renda_biru_25rb.jpg'),
-('BRG015', 'Rok Anak 2', 'KTG005', 'Putri', 21, 15000, 25000, 'gambar_barang/rok_anak_renda_merah_25rb.jpg'),
-('BRG016', 'Rok Anak 3', 'KTG005', 'Putri', 24, 15000, 25000, 'gambar_barang/rok_anak_renda_pink_25rb.jpg'),
+('BRG015', 'Rok Anak 2', 'KTG005', 'Putri', 19, 15000, 25000, 'gambar_barang/rok_anak_renda_merah_25rb.jpg'),
+('BRG016', 'Rok Anak 3', 'KTG005', 'Putri', 21, 15000, 25000, 'gambar_barang/rok_anak_renda_pink_25rb.jpg'),
 ('BRG017', 'Kerudung Anak Rabani', 'KTG003', 'Alim', 24, 12000, 17000, 'gambar_barang/kerudung_anak_rabani_17rb.jpg'),
-('BRG018', 'Celana Panjang Beggy', 'KTG010', 'Almira', 24, 45000, 70000, 'gambar_barang/celana_panjang_beggy_pants1 70rb.jpg'),
-('BRG019', 'Celana Panjang Beggy', 'KTG010', 'Almira', 24, 45000, 70000, 'gambar_barang/celana_panjang_beggy_pants2_70rb.jpg'),
+('BRG019', 'Celana Panjang Beggy', 'KTG010', 'Almira', 21, 45000, 70000, 'gambar_barang/celana_panjang_beggy_pants2_70rb.jpg'),
 ('BRG021', 'Celana Panjang Beggy', 'KTG010', 'Almira', 24, 45000, 70000, 'gambar_barang/celana_panjang_beggy_pants4_70rb.jpg'),
 ('BRG022', 'Celana Panjang Soft ', 'KTG010', 'Fila', 12, 40000, 65000, 'gambar_barang/celana_panjang_soft_jeans_fila_65rb.jpg'),
-('BRG023', 'Celana Pendek Kulot ', 'KTG010', 'Almira', 21, 15000, 25000, 'gambar_barang/celana_pendek_kulot1_25rb.jpg'),
+('BRG023', 'Celana Pendek Kulot ', 'KTG010', 'Almira', 20, 15000, 25000, 'gambar_barang/celana_pendek_kulot1_25rb.jpg'),
 ('BRG024', 'Celana Panjang Scuba', 'KTG010', 'Almira', 36, 20000, 35000, 'gambar_barang/celana_scuba_35rb.jpg'),
 ('BRG025', 'Piyama Dewasa 1', 'KTG012', 'Sifa', 21, 40000, 60000, 'gambar_barang/dewasa_piyama_60rb.jpg'),
 ('BRG026', 'Gamis Dewasa Flece', 'KTG006', 'Fila', 36, 70000, 120000, 'gambar_barang/dewasa_set_flece_120rb.jpg'),
@@ -77,15 +76,15 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`,
 ('BRG032', 'Gamis Jersey Aisyah ', 'KTG006', 'Aisyah', 48, 45000, 70000, 'gambar_barang/gamis_jersey_aisyah1_70rb.jpg'),
 ('BRG033', 'Gamis Jersey Aisyah ', 'KTG006', 'Aisyah', 48, 45000, 70000, 'gambar_barang/gamis_jersey_aisyah2_70rb.jpg'),
 ('BRG034', 'Gamis Jersey Busui 1', 'KTG006', 'Aisyah', 24, 45000, 70000, 'gambar_barang/gamis_jersey_busui1_70rb.jpg'),
-('BRG035', 'Gamis Jersey Busui 2', 'KTG006', 'Aisyah', 24, 45000, 70000, 'gambar_barang/gamis_jersey_busui3_70rb.jpg'),
+('BRG035', 'Gamis Jersey Busui 2', 'KTG006', 'Aisyah', 23, 45000, 70000, 'gambar_barang/gamis_jersey_busui3_70rb.jpg'),
 ('BRG036', 'Gamis Jersey Busui 3', 'KTG006', 'Aisyah', 24, 45000, 70000, 'gambar_barang/gamis_jersey_busui3_70rb.jpg'),
 ('BRG037', 'Gamis Jersey Busui 4', 'KTG006', 'Aisyah', 24, 45000, 70000, 'gambar_barang/gamis_jersey_busui4_70rb.jpg'),
 ('BRG038', 'Gamis Jersey Busui 5', 'KTG006', 'Aisyah', 24, 45000, 70000, 'gambar_barang/gamis_jersey_busui5_70rb.jpg'),
-('BRG039', 'Gamis Mostcrep 1', 'KTG006', 'Aisyah', 12, 55000, 95000, 'gambar_barang/gamis_mostcrep_mutiara_95rb.jpg'),
-('BRG040', 'Gamis Mostcrep 2', 'KTG006', 'Aisyah', 12, 50000, 90000, 'gambar_barang/gamis_mostcrept_90rb.jpg'),
+('BRG039', 'Gamis Mostcrep 1', 'KTG006', 'Aisyah', 11, 55000, 95000, 'gambar_barang/gamis_mostcrep_mutiara_95rb.jpg'),
+('BRG040', 'Gamis Mostcrep 2', 'KTG006', 'Aisyah', 10, 50000, 90000, 'gambar_barang/gamis_mostcrept_90rb.jpg'),
 ('BRG041', 'Jaket Hodie 1', 'KTG011', 'Fila', 12, 35000, 65000, 'gambar_barang/jaket_hodie_flece1_65rb.jpg'),
 ('BRG042', 'Jaket Hodie 2', 'KTG011', 'Fila', 12, 35000, 65000, 'gambar_barang/jaket_hodie_flece2_65rb.jpg'),
-('BRG043', 'Jaket Jeans 1', 'KTG011', 'LOB', 24, 35000, 65000, 'gambar_barang/jaket_jeans_coklat_65rb.jpg'),
+('BRG043', 'Jaket Jeans 1', 'KTG011', 'LOB', 23, 35000, 65000, 'gambar_barang/jaket_jeans_coklat_65rb.jpg'),
 ('BRG044', 'Jaket Jeans 2', 'KTG011', 'LOB', 24, 35000, 65000, 'gambar_barang/jaket_jeans_pink_65rb.jpg'),
 ('BRG045', 'Kaos Dewasa 1', 'KTG007', 'Fila', 12, 10000, 20000, 'gambar_barang/kaos_dewasa_oblong1_20rb.jpg'),
 ('BRG046', 'Kaos Dewasa 2', 'KTG001', 'Fila', 36, 10000, 20000, 'gambar_barang/kaos_dewasa_oblong2_20rb.jpg'),
@@ -99,17 +98,17 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`,
 ('BRG054', 'Kaos Dewasa 10', 'KTG007', 'Fila', 12, 18000, 35000, 'gambar_barang/kaos_la_vie_35rb.jpg'),
 ('BRG055', 'Kaos Dewasa 11', 'KTG007', 'Fila', 12, 18000, 35000, 'gambar_barang/kaos_salur_35rb.jpg'),
 ('BRG056', 'Kerudung Ramora 1', 'KTG008', 'Bergo', 37, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora1_40rb.jpg'),
-('BRG057', 'Kerudung Ramora 2', 'KTG008', 'Bergo', 36, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora2_40rb.jpg'),
-('BRG058', 'Kerudung Ramora 3', 'KTG008', 'Bergo', 36, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora3_40rb.jpg'),
+('BRG057', 'Kerudung Ramora 2', 'KTG008', 'Bergo', 35, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora2_40rb.jpg'),
+('BRG058', 'Kerudung Ramora 3', 'KTG008', 'Bergo', 35, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora3_40rb.jpg'),
 ('BRG059', 'Kerudung Ramora 4', 'KTG008', 'Bergo', 36, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora4_40rb.jpg'),
-('BRG060', 'Kerudung Ramora 5', 'KTG008', 'Bergo', 36, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora5_40rb.jpg'),
+('BRG060', 'Kerudung Ramora 5', 'KTG008', 'Bergo', 35, 20000, 40000, 'gambar_barang/kerudung_bergo_ramora5_40rb.jpg'),
 ('BRG061', 'Kerudung Khimar 1', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira1_40rb.jpg'),
-('BRG062', 'Kerudung Khimar 2', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira2_40rb.jpg'),
-('BRG063', 'Kerudung Khimar 3', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira3_40rb.jpg'),
+('BRG062', 'Kerudung Khimar 2', 'KTG008', 'Nameera', 46, 20000, 40000, 'gambar_barang/kerudung_khimar_namira2_40rb.jpg'),
+('BRG063', 'Kerudung Khimar 3', 'KTG008', 'Nameera', 46, 20000, 40000, 'gambar_barang/kerudung_khimar_namira3_40rb.jpg'),
 ('BRG064', 'Kerudung Khimar 4', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira4_40rb.jpg'),
 ('BRG065', 'Kerudung Khimar 5', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira5_40rb.jpg'),
 ('BRG066', 'Kerudung Khimar 6', 'KTG008', 'Nameera', 48, 20000, 40000, 'gambar_barang/kerudung_khimar_namira6_40rb.jpg'),
-('BRG067', 'Kerudung Khimar 7', 'KTG008', 'Nameera', 48, 16000, 25000, 'gambar_barang/kerudung_khimar_per_kriwil_25rb.jpg'),
+('BRG067', 'Kerudung Khimar 7', 'KTG008', 'Nameera', 47, 16000, 25000, 'gambar_barang/kerudung_khimar_per_kriwil_25rb.jpg'),
 ('BRG068', 'Kerudung Khimar 8', 'KTG008', 'Nameera', 48, 20000, 35000, 'gambar_barang/kerudung_khimar_polos1_35rb.jpg'),
 ('BRG069', 'Kerudung Khimar 10', 'KTG008', 'Nameera', 48, 20000, 35000, 'gambar_barang/kerudung_khimar_polos2_35rb.jpg'),
 ('BRG070', 'Kerudung rabani 1', 'KTG008', 'Nameera', 24, 16000, 25000, 'gambar_barang/kerudung_rabani1_25rb.jpg'),
@@ -121,7 +120,8 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`,
 ('BRG076', 'Kerudung Silk 2', 'KTG008', 'Arabia', 23, 15000, 30000, 'gambar_barang/kerudung_silk_motif2_30rb.jpg'),
 ('BRG077', 'Rok Plisket 1', 'KTG009', 'Difa', 36, 20000, 35000, 'gambar_barang/rok_plisket1_35rb.jpg'),
 ('BRG078', 'Rok Plisket 2', 'KTG009', 'Difa', 36, 20000, 35000, 'gambar_barang/rok_plisket2_35rb.jpg'),
-('BRG079', 'Rok Plisket 3', 'KTG009', 'Difa', 34, 20000, 35000, 'gambar_barang/rok_plisket3_35rb.jpg');
+('BRG079', 'Rok Plisket 3', 'KTG009', 'Difa', 34, 20000, 35000, 'gambar_barang/rok_plisket3_35rb.jpg'),
+('BRG080', 'celana kolor', 'KTG002', 'kolorku', 24, 60000, 75000, 'gambar_barang/celana_anak_joger1_17rb.jpg');
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,32 @@ INSERT INTO `detail_online` (`id_detail_online`, `id_transaksi`, `id_barang`, `h
 ('DTO008', 'TRS011', 'BRG008', 20000, '2019-01-13 13:44:41', 1, 'MBR003', 1),
 ('DTO009', 'TRS012', 'BRG006', 20000, '2019-01-13 13:53:58', 4, 'MBR003', 1),
 ('DTO010', 'TRS013', 'BRG023', 25000, '2019-01-13 13:55:56', 3, 'MBR003', 1),
-('DTO011', 'TRS015', 'BRG029', 35000, '2019-01-13 15:52:06', 5, 'MBR003', 1);
+('DTO011', 'TRS015', 'BRG029', 35000, '2019-01-13 15:52:06', 5, 'MBR003', 1),
+('DTO012', 'TRS016', 'BRG001', 40000, '2019-01-18 13:48:22', 4, 'MBR003', 1),
+('DTO013', 'TRS016', 'BRG006', 20000, '2019-01-18 13:51:21', 1, 'MBR003', 1),
+('DTO014', 'TRS017', 'BRG001', 40000, '2019-01-18 13:59:39', 1, 'MBR003', 1),
+('DTO016', 'TRS017', 'BRG004', 17000, '2019-01-18 13:59:53', 1, 'MBR003', 1),
+('DTO017', 'TRS017', 'BRG005', 17000, '2019-01-18 14:00:01', 1, 'MBR003', 1),
+('DTO019', 'TRS017', 'BRG007', 20000, '2019-01-18 14:00:51', 2, 'MBR003', 1),
+('DTO020', 'TRS017', 'BRG008', 20000, '2019-01-18 14:00:55', 1, 'MBR003', 1),
+('DTO021', 'TRS018', 'BRG019', 70000, '2019-01-29 14:24:01', 2, 'MBR003', 1),
+('DTO022', 'TRS019', 'BRG062', 40000, '2019-02-20 21:42:27', 2, 'MBR004', 1),
+('DTO023', 'TRS019', 'BRG063', 40000, '2019-02-20 21:42:30', 2, 'MBR004', 1),
+('DTO024', 'TRS020', 'BRG023', 25000, '2019-02-20 21:44:12', 1, 'MBR004', 1),
+('DTO025', 'TRS021', 'BRG011', 17000, '2019-02-20 21:46:04', 1, 'MBR004', 1),
+('DTO026', 'TRS022', 'BRG015', 25000, '2019-02-20 21:57:31', 2, 'MBR005', 1),
+('DTO027', 'TRS022', 'BRG016', 25000, '2019-02-20 21:57:33', 3, 'MBR005', 1),
+('DTO028', 'TRS023', 'BRG039', 95000, '2019-02-20 22:00:33', 1, 'MBR006', 1),
+('DTO029', 'TRS023', 'BRG040', 90000, '2019-02-20 22:00:36', 2, 'MBR006', 1),
+('DTO030', 'TRS024', 'BRG058', 40000, '2019-02-20 22:03:28', 1, 'MBR007', 1),
+('DTO031', 'TRS024', 'BRG057', 40000, '2019-02-20 22:03:30', 1, 'MBR007', 1),
+('DTO032', 'TRS024', 'BRG060', 40000, '2019-02-20 22:03:33', 1, 'MBR007', 1),
+('DTO033', 'TRS025', 'BRG019', 70000, '2019-02-20 22:05:17', 1, 'MBR008', 1),
+('DTO034', 'TRS025', 'BRG011', 17000, '2019-02-20 22:05:25', 1, 'MBR008', 1),
+('DTO035', 'TRS025', 'BRG067', 25000, '2019-02-20 22:05:34', 1, 'MBR008', 1),
+('DTO036', 'TRS026', 'BRG035', 70000, '2019-02-20 22:06:38', 1, 'MBR008', 1),
+('DTO037', 'TRS026', 'BRG043', 65000, '2019-02-20 22:06:44', 1, 'MBR008', 1),
+('DTO039', 'TRS028', 'BRG003', 17000, '2019-02-20 22:15:24', 1, 'MBR006', 1);
 
 --
 -- Trigger `detail_online`
@@ -283,7 +308,6 @@ INSERT INTO `detail_pembelian` (`id_detail_pembelian`, `id_order`, `id_barang`, 
 ('PMB008', 'ORD008', 'BRG003', 10000, '2018-12-17 11:13:08', 36, 'Admin', 1, 'SPL001'),
 ('PMB009', 'ORD008', 'BRG004', 10000, '2018-12-17 11:13:12', 36, 'Admin', 1, 'SPL001'),
 ('PMB010', 'ORD008', 'BRG005', 10000, '2018-12-17 11:13:13', 36, 'Admin', 1, 'SPL001'),
-('PMB011', 'ORD008', 'BRG018', 45000, '2018-12-17 11:14:32', 24, 'Admin', 1, 'SPL003'),
 ('PMB012', 'ORD008', 'BRG019', 45000, '2018-12-17 11:14:33', 24, 'Admin', 1, 'SPL003'),
 ('PMB014', 'ORD008', 'BRG021', 45000, '2018-12-17 11:14:35', 24, 'Admin', 1, 'SPL003'),
 ('PMB015', 'ORD008', 'BRG022', 40000, '2018-12-17 11:14:36', 12, 'Admin', 1, 'SPL003'),
@@ -350,7 +374,8 @@ INSERT INTO `detail_pembelian` (`id_detail_pembelian`, `id_order`, `id_barang`, 
 ('PMB076', 'ORD008', 'BRG016', 15000, '2018-12-17 11:24:57', 24, 'Admin', 1, 'SPL002'),
 ('PMB077', 'ORD008', 'BRG077', 20000, '2018-12-17 11:25:22', 36, 'Admin', 1, 'SPL006'),
 ('PMB078', 'ORD008', 'BRG078', 20000, '2018-12-17 11:25:23', 36, 'Admin', 1, 'SPL006'),
-('PMB079', 'ORD008', 'BRG079', 20000, '2018-12-17 11:25:24', 36, 'Admin', 1, 'SPL006');
+('PMB079', 'ORD008', 'BRG079', 20000, '2018-12-17 11:25:24', 36, 'Admin', 1, 'SPL006'),
+('PMB080', 'ORD009', 'BRG080', 60000, '2019-02-21 05:50:49', 24, 'Admin', 1, 'SPL005');
 
 --
 -- Trigger `detail_pembelian`
@@ -401,7 +426,8 @@ CREATE TABLE `karyawan` (
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama`, `alamat`, `bagian`, `jenis_kelamin`, `nomor_telp`, `level`) VALUES
 ('KRY001', 'agung', 'Jogja', 'Superadmin', 'L', '6287830517727', 1),
-('KRY002', 'syukron', 'pekalongan', 'Admin', 'L', '087830517727', 0);
+('KRY002', 'syukron', 'pekalongan', 'Admin', 'L', '087830517727', 0),
+('KRY003', 'hani', 'jogja', 'Admin', 'P', '085870122114', 0);
 
 -- --------------------------------------------------------
 
@@ -535,7 +561,12 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `nama_member`, `alamat`, `no_telp`, `jenis_kelamin`, `email`, `password`, `pertanyaan`, `jawaban`) VALUES
-('MBR003', 'syukron', 'pekalongan', '087830517727', 'L', 'zukronthanks@gmail.com', '5814eb401e456b09fb3cadb5f47bd75c', 'siapa anda', 'aku');
+('MBR003', 'syukron', 'pekalongan', '087830517727', 'L', 'zukronthanks@gmail.com', '1767c3d9c3a1b24e28aceeec1a61e577', 'siapa anda', 'aku'),
+('MBR004', 'candra', 'bantul', '087836122900', 'L', 'candra303@yahoo.com', 'b4d9b99a7feef0a4b92ee825d0ae90dc', 'q', 'q'),
+('MBR005', 'arifin', 'sleman', '08584032299', 'L', 'arifin899@gmail.com', '4b836df57f128d92e593df8f1010e5f9', 'siapa', 'arifin'),
+('MBR006', 'hanida', 'kajen', '085893433770', 'P', 'hanida677@gmail.com', '1f221269371b506a705e5321f1ae6b17', 'siapa', 'aku'),
+('MBR007', 'alma safitri', 'bojong', '087851225022', 'P', 'safitrihanida@gmail.com', '4b738c458fe9a91d6a6478db68f1ebf3', 'siapa', 'dia'),
+('MBR008', 'ulil', 'pekalongan', '085840311771', 'P', 'fitriulil@gmail.com', 'e6fca2189b146b3b6dd14a76b2e414a6', 'siapa', 'ulil');
 
 -- --------------------------------------------------------
 
@@ -561,7 +592,8 @@ INSERT INTO `orderbarang` (`id_order`, `tanggal`, `total_bayar`) VALUES
 ('ORD005', '2018-12-07 22:48:24', 2147483647),
 ('ORD006', '2018-12-13 19:26:50', 12000000),
 ('ORD007', '2018-12-17 11:10:11', 0),
-('ORD008', '2018-12-17 11:25:40', 50660000);
+('ORD008', '2018-12-17 11:25:40', 50660000),
+('ORD009', '2019-02-21 05:51:16', 1440000);
 
 -- --------------------------------------------------------
 
@@ -623,7 +655,20 @@ INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `total_bayar`, `jenis_transa
 ('TRS012', '2019-01-13 20:54:05', 80000, 'online', 1, 'bukti_transaksi/3.PNG'),
 ('TRS013', '2019-01-13 20:56:35', 75000, 'online', 1, 'bukti_transaksi/4.PNG'),
 ('TRS014', '2019-01-13 22:29:32', 70000, 'offline', 1, NULL),
-('TRS015', '2019-01-13 22:52:33', 175000, 'online', 1, 'bukti_transaksi/12.PNG');
+('TRS015', '2019-01-13 22:52:33', 175000, 'online', 1, 'bukti_transaksi/12.PNG'),
+('TRS016', '2019-01-18 20:55:22', 180000, 'online', 1, 'bukti_transaksi/#1.jpg'),
+('TRS017', '2019-01-18 21:01:01', 204000, 'online', 1, 'bukti_transaksi/feed.jpg'),
+('TRS018', '2019-01-29 21:24:10', 140000, 'online', 1, 'bukti_transaksi/nisa.png'),
+('TRS019', '2019-02-21 04:42:44', 160000, 'online', 1, 'bukti_transaksi/b5.PNG'),
+('TRS020', '2019-02-21 04:44:36', 25000, 'online', 1, 'bukti_transaksi/a3.PNG'),
+('TRS021', '2019-02-21 04:46:10', 17000, 'online', 1, 'bukti_transaksi/b1.PNG'),
+('TRS022', '2019-02-21 04:57:53', 125000, 'online', 1, 'bukti_transaksi/d3.PNG'),
+('TRS023', '2019-02-21 05:00:47', 275000, 'online', 1, 'bukti_transaksi/d5.PNG'),
+('TRS024', '2019-02-21 05:03:40', 120000, 'online', 1, 'bukti_transaksi/c8.PNG'),
+('TRS025', '2019-02-21 05:05:43', 112000, 'online', 1, 'bukti_transaksi/d4.PNG'),
+('TRS026', '2019-02-21 05:06:54', 135000, 'online', 1, 'bukti_transaksi/d7.PNG'),
+('TRS027', '2019-02-21 05:08:22', 1610000, 'online', 1, 'bukti_transaksi/tes.PNG'),
+('TRS028', '2019-02-21 05:15:29', 17000, 'online', 1, 'bukti_transaksi/d9.PNG');
 
 --
 -- Trigger `transaksi`
@@ -656,6 +701,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `id_karyawan`, `password`, `pertanyaannya`, `jawabannya`) VALUES
 ('Admin', NULL, '545aff346297211f41bf7fe4dcc27808', 'a', 'c'),
 ('agung', 'KRY001', 'a70b2fad5fc73f2ce1919a682be6eeaa', 'a', 'b'),
+('hani', 'KRY003', '8677ad99395f0327210966ed716578e8', 'siapa', 'hani'),
 ('ndaru21', NULL, '0819290c9e0696b715ccc89937cd7dc1', 'apa', 'aja'),
 ('syukron', 'KRY002', '078d3c86c96c577439741e8470ff115d', 'a', 'b');
 
