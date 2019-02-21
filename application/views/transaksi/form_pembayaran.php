@@ -15,7 +15,7 @@
                             <?php echo form_open_multipart('transaksi/updatebuktipembayaran'); ?>
                                 <div class="form-group">
                                     <label>Transaksi Pending</label>
-                                    <select id="transaksipending" name="transaksipending" class="form-control" onfocus="pilihtransaksi()">
+                                    <select id="transaksipending" name="transaksipending" class="form-control" onchange="pilihtransaksi()">
                                         <?php foreach ($data as $k) {
                                             echo "<option value='$k->id_transaksi'>$k->id_transaksi</option>";
                                         } ?>
