@@ -364,7 +364,15 @@ class transaksi extends ci_controller{
     function getjumlahpembayaran()
     {
         $hasil = $this->model_transaksi->getjumlahpembayaran()->result();
-        echo json_encode($hasil[0]);
+        if (count($hasil)==0)
+        {
+            echo 0;
+        }
+        else
+        {
+            echo json_encode($hasil[0]);
+        }
+        
     }
 
     function updatebuktipembayaran()

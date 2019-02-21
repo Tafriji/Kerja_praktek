@@ -27,7 +27,7 @@
                                 </div>
 
                                 <button type="submit" name="submit" class="btn btn-primary btn-sm">Update</button> | 
-                                <?php echo anchor('operator','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
+                                <?php echo anchor('supliyer','Kembali',array('class'=>'btn btn-danger btn-sm'))?>
                                 </form>
                             </div>
                         </div>

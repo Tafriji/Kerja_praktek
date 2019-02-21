@@ -238,7 +238,7 @@ class model_transaksi extends ci_model
         $this->db->where('id_detail_online',$id);
         $this->db->delete('detail_online');
     }
-    function hapusdetailonlinebatal($id)
+    function hapusdetailonlinebatal()
     {
         $this->db->where('id_transaksi',null);
         $this->db->where('id_member',$_SESSION['userdata']->id_member);

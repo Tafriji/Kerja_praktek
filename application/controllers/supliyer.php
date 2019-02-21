@@ -42,7 +42,7 @@ class supliyer extends ci_controller{
     {
         if(isset($_POST['submit'])){
             $this->model_supliyer->edit();
-             redirect('operator');
+             redirect('supliyer');
         }
         else{
             $id=  $this->uri->segment(3);

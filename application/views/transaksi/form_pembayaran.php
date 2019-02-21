@@ -16,6 +16,7 @@
                                 <div class="form-group">
                                     <label>Transaksi Pending</label>
                                     <select id="transaksipending" name="transaksipending" class="form-control" onchange="pilihtransaksi()">
+                                     <option value="0">Pilih Transaksi</option>
                                         <?php foreach ($data as $k) {
                                             echo "<option value='$k->id_transaksi'>$k->id_transaksi</option>";
                                         } ?>
@@ -49,8 +50,16 @@ function pilihtransaksi() {
         success : function(dd)
         {
             var data= $.parseJSON(dd);
-            console.log(data);
-            document.getElementById('jmlbayar').value=data['total_bayar'] ; 
+            if(dd !=0)
+            {
+                console.log(data);
+                document.getElementById('jmlbayar').value=data['total_bayar'] ; 
+            }
+            else
+            {
+                document.getElementById('jmlbayar').value="" ; 
+            }
+           
         }
     })
 }
