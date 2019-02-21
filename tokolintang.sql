@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Feb 2019 pada 02.56
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 5.6.38
+-- Generation Time: Feb 21, 2019 at 11:03 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -40,7 +40,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`, `harga`, `harga_jual`, `foto`) VALUES
@@ -126,8 +126,8 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `merk`, `stok`,
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `barang_laris`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `barang_laris`
+-- (See below for the actual view)
 --
 CREATE TABLE `barang_laris` (
 `foto` varchar(500)
@@ -140,7 +140,7 @@ CREATE TABLE `barang_laris` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail`
+-- Table structure for table `detail`
 --
 
 CREATE TABLE `detail` (
@@ -155,7 +155,7 @@ CREATE TABLE `detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail`
+-- Dumping data for table `detail`
 --
 
 INSERT INTO `detail` (`id_detail`, `id_transaksi`, `id_barang`, `harga`, `tanggal`, `jumlah`, `id_user`, `status`) VALUES
@@ -163,7 +163,7 @@ INSERT INTO `detail` (`id_detail`, `id_transaksi`, `id_barang`, `harga`, `tangga
 ('DTL002', 'TRS014', 'BRG079', 35000, '2019-01-13 15:29:29', 2, 'agung', 1);
 
 --
--- Trigger `detail`
+-- Triggers `detail`
 --
 DELIMITER $$
 CREATE TRIGGER `kurangstok` AFTER INSERT ON `detail` FOR EACH ROW begin
@@ -192,7 +192,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_online`
+-- Table structure for table `detail_online`
 --
 
 CREATE TABLE `detail_online` (
@@ -207,7 +207,7 @@ CREATE TABLE `detail_online` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_online`
+-- Dumping data for table `detail_online`
 --
 
 INSERT INTO `detail_online` (`id_detail_online`, `id_transaksi`, `id_barang`, `harga`, `tanggal`, `jumlah`, `id_member`, `status`) VALUES
@@ -249,7 +249,7 @@ INSERT INTO `detail_online` (`id_detail_online`, `id_transaksi`, `id_barang`, `h
 ('DTO039', 'TRS028', 'BRG003', 17000, '2019-02-20 22:15:24', 1, 'MBR006', 1);
 
 --
--- Trigger `detail_online`
+-- Triggers `detail_online`
 --
 DELIMITER $$
 CREATE TRIGGER `kuranggggg1` AFTER UPDATE ON `detail_online` FOR EACH ROW begin
@@ -278,7 +278,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_pembelian`
+-- Table structure for table `detail_pembelian`
 --
 
 CREATE TABLE `detail_pembelian` (
@@ -294,7 +294,7 @@ CREATE TABLE `detail_pembelian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_pembelian`
+-- Dumping data for table `detail_pembelian`
 --
 
 INSERT INTO `detail_pembelian` (`id_detail_pembelian`, `id_order`, `id_barang`, `harga`, `tanggal`, `jumlah`, `id_user`, `status`, `id_supliyer`) VALUES
@@ -378,7 +378,7 @@ INSERT INTO `detail_pembelian` (`id_detail_pembelian`, `id_order`, `id_barang`, 
 ('PMB080', 'ORD009', 'BRG080', 60000, '2019-02-21 05:50:49', 24, 'Admin', 1, 'SPL005');
 
 --
--- Trigger `detail_pembelian`
+-- Triggers `detail_pembelian`
 --
 DELIMITER $$
 CREATE TRIGGER `kurangstokdetailpembelian` AFTER UPDATE ON `detail_pembelian` FOR EACH ROW BEGIN
@@ -407,7 +407,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `karyawan`
+-- Table structure for table `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -421,7 +421,7 @@ CREATE TABLE `karyawan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `karyawan`
+-- Dumping data for table `karyawan`
 --
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama`, `alamat`, `bagian`, `jenis_kelamin`, `nomor_telp`, `level`) VALUES
@@ -432,7 +432,7 @@ INSERT INTO `karyawan` (`id_karyawan`, `nama`, `alamat`, `bagian`, `jenis_kelami
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -441,7 +441,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `jenis_barang`) VALUES
@@ -461,8 +461,8 @@ INSERT INTO `kategori` (`id_kategori`, `jenis_barang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `laporan_pembelian`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `laporan_pembelian`
+-- (See below for the actual view)
 --
 CREATE TABLE `laporan_pembelian` (
 `nama` varchar(30)
@@ -479,8 +479,8 @@ CREATE TABLE `laporan_pembelian` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `laporan_penjualan`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `laporan_penjualan`
+-- (See below for the actual view)
 --
 CREATE TABLE `laporan_penjualan` (
 `nama_barang` varchar(20)
@@ -496,8 +496,8 @@ CREATE TABLE `laporan_penjualan` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `laporan_penjualan_offline`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `laporan_penjualan_offline`
+-- (See below for the actual view)
 --
 CREATE TABLE `laporan_penjualan_offline` (
 `nama_barang` varchar(20)
@@ -513,8 +513,8 @@ CREATE TABLE `laporan_penjualan_offline` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `laris`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `laris`
+-- (See below for the actual view)
 --
 CREATE TABLE `laris` (
 `foto` varchar(500)
@@ -527,8 +527,8 @@ CREATE TABLE `laris` (
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `laris2`
--- (Lihat di bawah untuk tampilan aktual)
+-- Stand-in structure for view `laris2`
+-- (See below for the actual view)
 --
 CREATE TABLE `laris2` (
 `foto` varchar(500)
@@ -541,7 +541,7 @@ CREATE TABLE `laris2` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `member`
+-- Table structure for table `member`
 --
 
 CREATE TABLE `member` (
@@ -557,11 +557,11 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `member`
+-- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`id_member`, `nama_member`, `alamat`, `no_telp`, `jenis_kelamin`, `email`, `password`, `pertanyaan`, `jawaban`) VALUES
-('MBR003', 'syukron', 'pekalongan', '087830517727', 'L', 'zukronthanks@gmail.com', '1767c3d9c3a1b24e28aceeec1a61e577', 'siapa anda', 'aku'),
+('MBR003', 'syukron', 'pekalongan', '087830517727', 'L', 'zukronthanks@gmail.com', 'c526fd52a2c7e631c2391d3efe8311bb', 'siapa anda', 'aku'),
 ('MBR004', 'candra', 'bantul', '087836122900', 'L', 'candra303@yahoo.com', 'b4d9b99a7feef0a4b92ee825d0ae90dc', 'q', 'q'),
 ('MBR005', 'arifin', 'sleman', '08584032299', 'L', 'arifin899@gmail.com', '4b836df57f128d92e593df8f1010e5f9', 'siapa', 'arifin'),
 ('MBR006', 'hanida', 'kajen', '085893433770', 'P', 'hanida677@gmail.com', '1f221269371b506a705e5321f1ae6b17', 'siapa', 'aku'),
@@ -571,7 +571,7 @@ INSERT INTO `member` (`id_member`, `nama_member`, `alamat`, `no_telp`, `jenis_ke
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orderbarang`
+-- Table structure for table `orderbarang`
 --
 
 CREATE TABLE `orderbarang` (
@@ -581,7 +581,7 @@ CREATE TABLE `orderbarang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `orderbarang`
+-- Dumping data for table `orderbarang`
 --
 
 INSERT INTO `orderbarang` (`id_order`, `tanggal`, `total_bayar`) VALUES
@@ -598,7 +598,7 @@ INSERT INTO `orderbarang` (`id_order`, `tanggal`, `total_bayar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supliyer`
+-- Table structure for table `supliyer`
 --
 
 CREATE TABLE `supliyer` (
@@ -609,7 +609,7 @@ CREATE TABLE `supliyer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supliyer`
+-- Dumping data for table `supliyer`
 --
 
 INSERT INTO `supliyer` (`id_supliyer`, `nama`, `alamat`, `kontak`) VALUES
@@ -624,7 +624,7 @@ INSERT INTO `supliyer` (`id_supliyer`, `nama`, `alamat`, `kontak`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -637,7 +637,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `total_bayar`, `jenis_transaksi`, `Status`, `bukti_transaksi`) VALUES
@@ -671,7 +671,7 @@ INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `total_bayar`, `jenis_transa
 ('TRS028', '2019-02-21 05:15:29', 17000, 'online', 1, 'bukti_transaksi/d9.PNG');
 
 --
--- Trigger `transaksi`
+-- Triggers `transaksi`
 --
 DELIMITER $$
 CREATE TRIGGER `tambaaaah` BEFORE DELETE ON `transaksi` FOR EACH ROW begin 
@@ -683,7 +683,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -695,7 +695,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `id_karyawan`, `password`, `pertanyaannya`, `jawabannya`) VALUES
@@ -708,7 +708,7 @@ INSERT INTO `user` (`id_user`, `id_karyawan`, `password`, `pertanyaannya`, `jawa
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `barang_laris`
+-- Structure for view `barang_laris`
 --
 DROP TABLE IF EXISTS `barang_laris`;
 
@@ -717,16 +717,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `laporan_pembelian`
+-- Structure for view `laporan_pembelian`
 --
 DROP TABLE IF EXISTS `laporan_pembelian`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `laporan_pembelian`  AS  select `d`.`nama` AS `nama`,`b`.`nama_barang` AS `nama_barang`,`c`.`id_order` AS `id_order`,`a`.`harga` AS `harga`,`a`.`jumlah` AS `jumlah`,`a`.`id_user` AS `id_user`,`c`.`tanggal` AS `tanggal`,`c`.`total_bayar` AS `total_bayar`,(`a`.`harga` * `a`.`jumlah`) AS `jumlahtotal` from (((`detail_pembelian` `a` join `barang` `b` on((`b`.`id_barang` = `a`.`id_barang`))) join `orderbarang` `c` on((`c`.`id_order` = `a`.`id_order`))) join `supliyer` `d` on((`a`.`id_supliyer` = `a`.`id_supliyer`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `laporan_pembelian`  AS  select `d`.`nama` AS `nama`,`b`.`nama_barang` AS `nama_barang`,`c`.`id_order` AS `id_order`,`a`.`harga` AS `harga`,`a`.`jumlah` AS `jumlah`,`a`.`id_user` AS `id_user`,`c`.`tanggal` AS `tanggal`,`c`.`total_bayar` AS `total_bayar`,(`a`.`harga` * `a`.`jumlah`) AS `jumlahtotal` from (((`detail_pembelian` `a` join `barang` `b` on((`b`.`id_barang` = `a`.`id_barang`))) join `orderbarang` `c` on((`c`.`id_order` = `a`.`id_order`))) join `supliyer` `d` on((`d`.`id_supliyer` = `a`.`id_supliyer`))) ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `laporan_penjualan`
+-- Structure for view `laporan_penjualan`
 --
 DROP TABLE IF EXISTS `laporan_penjualan`;
 
@@ -735,7 +735,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `laporan_penjualan_offline`
+-- Structure for view `laporan_penjualan_offline`
 --
 DROP TABLE IF EXISTS `laporan_penjualan_offline`;
 
@@ -744,7 +744,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `laris`
+-- Structure for view `laris`
 --
 DROP TABLE IF EXISTS `laris`;
 
@@ -753,7 +753,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Struktur untuk view `laris2`
+-- Structure for view `laris2`
 --
 DROP TABLE IF EXISTS `laris2`;
 
@@ -764,14 +764,14 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
   ADD KEY `fk_barang3` (`id_kategori`);
 
 --
--- Indeks untuk tabel `detail`
+-- Indexes for table `detail`
 --
 ALTER TABLE `detail`
   ADD PRIMARY KEY (`id_detail`),
@@ -780,7 +780,7 @@ ALTER TABLE `detail`
   ADD KEY `fk_user` (`id_user`);
 
 --
--- Indeks untuk tabel `detail_online`
+-- Indexes for table `detail_online`
 --
 ALTER TABLE `detail_online`
   ADD PRIMARY KEY (`id_detail_online`),
@@ -789,7 +789,7 @@ ALTER TABLE `detail_online`
   ADD KEY `detail_online_ibfk_1` (`id_member`);
 
 --
--- Indeks untuk tabel `detail_pembelian`
+-- Indexes for table `detail_pembelian`
 --
 ALTER TABLE `detail_pembelian`
   ADD PRIMARY KEY (`id_detail_pembelian`),
@@ -798,61 +798,61 @@ ALTER TABLE `detail_pembelian`
   ADD KEY `id_supliyer` (`id_supliyer`);
 
 --
--- Indeks untuk tabel `karyawan`
+-- Indexes for table `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id_karyawan`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`),
   ADD UNIQUE KEY `jenis_barang` (`jenis_barang`);
 
 --
--- Indeks untuk tabel `member`
+-- Indexes for table `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id_member`);
 
 --
--- Indeks untuk tabel `orderbarang`
+-- Indexes for table `orderbarang`
 --
 ALTER TABLE `orderbarang`
   ADD PRIMARY KEY (`id_order`);
 
 --
--- Indeks untuk tabel `supliyer`
+-- Indexes for table `supliyer`
 --
 ALTER TABLE `supliyer`
   ADD PRIMARY KEY (`id_supliyer`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `fk_karyawan1` (`id_karyawan`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `barang`
+-- Constraints for table `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `detail`
+-- Constraints for table `detail`
 --
 ALTER TABLE `detail`
   ADD CONSTRAINT `fk_barang1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -860,7 +860,7 @@ ALTER TABLE `detail`
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `detail_online`
+-- Constraints for table `detail_online`
 --
 ALTER TABLE `detail_online`
   ADD CONSTRAINT `detail_online_ibfk_1` FOREIGN KEY (`id_member`) REFERENCES `member` (`id_member`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -868,7 +868,7 @@ ALTER TABLE `detail_online`
   ADD CONSTRAINT `detail_online_ibfk_3` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `detail_pembelian`
+-- Constraints for table `detail_pembelian`
 --
 ALTER TABLE `detail_pembelian`
   ADD CONSTRAINT `detail_pembelian_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orderbarang` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -876,7 +876,7 @@ ALTER TABLE `detail_pembelian`
   ADD CONSTRAINT `detail_pembelian_ibfk_3` FOREIGN KEY (`id_supliyer`) REFERENCES `supliyer` (`id_supliyer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_karyawan1` FOREIGN KEY (`id_karyawan`) REFERENCES `karyawan` (`id_karyawan`) ON DELETE SET NULL ON UPDATE CASCADE;
