@@ -10,12 +10,9 @@
                 <!-- /. ROW  -->
 
 <div id="slideshow">
-<?php 
-            foreach($terlaris->result_array() as $rr)
-                { 
-                
-        ?> <div>
-            <img style="width:100%;height:340px;padding-bottom:10px;" src="<?php echo base_url().$rr['foto']?>">
+<?php foreach($terlaris->result() as $rr)
+        {  ?> <div>
+            <img style="width:100%;height:340px;padding-bottom:10px;" src="<?php echo base_url().$rr->foto?>">
             </div>
             <?php
             
@@ -74,7 +71,6 @@
 <div align="center">
 <?php
   echo $this->pagination->create_links();
-  
 ?>
 </div>
 

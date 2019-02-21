@@ -4,6 +4,7 @@ class transaksi extends ci_controller{
         function __construct() {
         parent::__construct();
         $this->load->model(array('model_barang','model_transaksi'));
+        
         check_session();
     }
     
@@ -27,9 +28,7 @@ class transaksi extends ci_controller{
         {
             redirect('login');
         }
-        
-     
-   
+
     }
 
     function offline()
@@ -61,7 +60,6 @@ class transaksi extends ci_controller{
    
     }
     
-    
     function hapusitem()
     {
         $id=  $this->uri->segment(3);
@@ -70,8 +68,6 @@ class transaksi extends ci_controller{
     }
 
    
-    
-    
     function selesai_belanja()
     {
         $tanggal=date('Y-m-d');
@@ -82,6 +78,61 @@ class transaksi extends ci_controller{
         redirect('transaksi');
     }
     
+    function laporan_mpdf()
+    {
+        $data['record']=  $this->model_transaksi->laporan_default();
+        $this->load->view('report/laporanOnline',$data);
+    }
+
+    function laporanMpdf_online()
+    {  
+        $data['record']=  $this->model_transaksi->laporan_default();
+        $config = array('format'=>'Folio');
+        $mpdf = new \Mpdf\Mpdf($config);
+        $html =  $this->load->view('report/laporanOnline',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
+    function laporanMpdf_offline()
+    {  
+        $data['record']=  $this->model_transaksi->laporan_default_offline();
+        $config = array('format'=>'Folio');
+        $mpdf = new \Mpdf\Mpdf($config);
+        $html =  $this->load->view('report/laporanOffline',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
+    function laporanMpdf_pembelian()
+    {  
+        $data['record']=  $this->model_transaksi->laporan_pembelian();
+        $config = array('format'=>'Folio');
+        $mpdf = new \Mpdf\Mpdf($config);
+        $html =  $this->load->view('report/laporanPembelian',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
+    function laporanMpdf_cetakbarang()
+    {  
+        $data['record']=  $this->model_barang->tampil_data();
+        $config = array('format'=>'Folio');
+        $mpdf = new \Mpdf\Mpdf($config);
+        $html =  $this->load->view('report/laporanCetakbarang',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
+
+    function laporanMpdf_laris()
+    {  
+        $data['record']=  $this->model_transaksi->laporan_laris();
+        $config = array('format'=>'Folio');
+        $mpdf = new \Mpdf\Mpdf($config);
+        $html =  $this->load->view('report/laporanBaranglaris',$data,true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output();
+    }
     
     function laporan()
     {
@@ -98,7 +149,12 @@ class transaksi extends ci_controller{
             {
                 $tanggal1=  $this->input->post('tanggal1');
                 $tanggal2=  $this->input->post('tanggal2');
-                $this->bydatepdf($tanggal1,$tanggal2);
+                $config = array('format'=>'Folio');
+                $mpdf = new \Mpdf\Mpdf($config);
+                $data['record']=  $this->model_transaksi->laporan_periode($tanggal1,$tanggal2);
+                $html =  $this->load->view('report/laporanOnline',$data,true);
+                $mpdf->WriteHTML($html);
+                $mpdf->Output();
             }
             else
             {
@@ -128,7 +184,12 @@ class transaksi extends ci_controller{
             {
                 $tanggal1=  $this->input->post('tanggal1');
                 $tanggal2=  $this->input->post('tanggal2');
-                $this->bydatepdfoffline($tanggal1,$tanggal2);
+                $config = array('format'=>'Folio');
+                $mpdf = new \Mpdf\Mpdf($config);
+                $data['record']=  $this->model_transaksi->laporan_periode_offline($tanggal1,$tanggal2);
+                $html =  $this->load->view('report/laporanOffline',$data,true);
+                $mpdf->WriteHTML($html);
+                $mpdf->Output();
             }
             else
             {
@@ -159,295 +220,7 @@ class transaksi extends ci_controller{
         }
         
     }
-    
-    function allpdf()
-    {
-        if($_SESSION['level']==1)
-        {
-            $this->load->library('cfpdf');
-        $pdf=new FPDF('P','cm','A4');
-        $pdf->AddPage();
-
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(16);
-        $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(12);
-        $pdf->setLineWidth(0.05);
-        $pdf->Cell(15);
-        $pdf->Cell(4, 2, date('d-M-y'), 1,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->setLineWidth(0.08);
-        $pdf->Line(21,3.5,0,3.5);
-        $pdf->setLineWidth(0.05);
-        $pdf->Ln(2);
-        $pdf->SetFontSize(12);
-        $pdf->Cell(2);
-        $pdf->Cell(1, 1, 'No', 1,0,'C');
-        $pdf->Cell(5, 1, 'Tanggal Transaksi', 1,0,'C');
-        $pdf->Cell(4, 1, 'Id Pembeli', 1,0,'C');
-        $pdf->Cell(5, 1, 'Total Transaksi', 1,1,'C');
-        // tampilkan dari database
-        $pdf->SetFont('Arial','','L');
-        $data=  $this->model_transaksi->laporan_default();
-        $no=1;
-        $total=0;
-        foreach ($data->result() as $r)
-        {
-            $pdf->Cell(2);
-            $pdf->Cell(1, 1, $no, 1,0,'C');
-            $pdf->Cell(5, 1, $r->tanggal, 1,0,'C');
-            $pdf->Cell(4, 1, $r->id_member, 1,0,'C');
-            $pdf->Cell(5, 1,'Rp '.$r->jumlahtotal, 1,1,'R');
-            $no++;
-            $total=$total+$r->jumlahtotal;
-        }
-        // end
-        $pdf->Cell(2);
-        $pdf->Cell(10,1,'Total',1,0,'R');
-        $pdf->Cell(5,1,'Rp '.$total,1,0,'R');
-        $pdf->Output();
-        }
-        else
-        {
-            redirect('auth/login');
-        }
         
-    }
-
-    function laporanpembelian()
-    {
-        if($_SESSION['level']==1)
-        {
-            $this->load->library('cfpdf');
-        $pdf=new FPDF('P','cm','A4');
-        $pdf->AddPage();
-
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(16);
-        $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PEMBELIAN',0,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(12);
-        $pdf->setLineWidth(0.05);
-        $pdf->Cell(15);
-        $pdf->Cell(4, 2, date('d-M-y'), 1,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->setLineWidth(0.08);
-        $pdf->Line(21,3.5,0,3.5);
-        $pdf->setLineWidth(0.05);
-        $pdf->Ln(2);
-        $pdf->SetFontSize(12);
-     
-        $pdf->Cell(1, 1, 'No', 1,0,'C');
-        $pdf->Cell(5, 1, 'Tanggal Transaksi', 1,0,'C');
-        $pdf->Cell(4, 1, 'Jumlah Beli', 1,0,'C');
-        $pdf->Cell(4, 1, 'Nama Barang', 1,0,'C');
-        $pdf->Cell(5, 1, 'Total Transaksi', 1,1,'C');
-        // tampilkan dari database
-        $pdf->SetFont('Arial','','L');
-        $data=  $this->model_transaksi->laporan_pembelian();
-        $no=1;
-        $total=0;
-        foreach ($data->result() as $r)
-        {
-          
-            $pdf->Cell(1, 1, $no, 1,0,'C');
-            $pdf->Cell(5, 1, $r->tanggal, 1,0,'C');
-            $pdf->Cell(4, 1, $r->jumlah, 1,0,'C');
-            $pdf->Cell(4, 1, $r->nama_barang, 1,0,'C');
-            $pdf->Cell(5, 1,'Rp '.$r->jumlahtotal, 1,1,'R');
-            $no++;
-            $total=$total+$r->jumlahtotal;
-        }
-        // end
-      
-        $pdf->Cell(14,1,'Total',1,0,'R');
-        $pdf->Cell(5,1,'Rp '.$total,1,0,'R');
-        $pdf->Output();
-        }
-        else
-        {
-            redirect('auth/login');
-        }
-        
-    }
-
-    function laris()
-    {
-        if($_SESSION['level']==1)
-        {
-            $this->load->library('cfpdf');
-        $pdf=new FPDF('P','cm','A4');
-        $pdf->AddPage();
-
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(16);
-        $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(6, 2.7,'LAPORAN PENJUALAN ONLINE',0,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->SetFontSize(12);
-        $pdf->setLineWidth(0.05);
-        $pdf->Cell(15);
-        $pdf->Cell(4, 2, date('d-M-y'), 1,1,'C');
-        $pdf->SetFont('Arial','B','C');
-        $pdf->setLineWidth(0.08);
-        $pdf->Line(21,3.5,0,3.5);
-        $pdf->setLineWidth(0.05);
-        $pdf->Ln(2);
-        $pdf->SetFontSize(12);
-        $pdf->Cell(2);
-        $pdf->Cell(1, 1, 'No', 1,0,'C');
-        $pdf->Cell(5, 1, 'ID BARANG', 1,0,'C');
-        $pdf->Cell(4, 1, 'NAMA BARANG', 1,0,'C');
-        $pdf->Cell(5, 1, 'TOTAL PENJUALAN', 1,1,'C');
-        // tampilkan dari database
-        $pdf->SetFont('Arial','','L');
-        $data=  $this->model_transaksi->laporan_laris();
-        $no=1;
-        $total=0;
-        foreach ($data->result() as $r)
-        {
-            $pdf->Cell(2);
-            $pdf->Cell(1, 1, $no, 1,0,'C');
-            $pdf->Cell(5, 1, $r->id_barang, 1,0,'C');
-            $pdf->Cell(4, 1, $r->nama_barang, 1,0,'C');
-            $pdf->Cell(5, 1, $r->total, 1,1,'R');
-            $no++;
-          
-        }
-        // end
-      
-        $pdf->Output();
-        }
-        else
-        {
-            redirect('auth/login');
-        }
-        
-    }
-
-
-    
-
-    function laporanbarang()
-    {
-        if($_SESSION['level']==1)
-        {
-            $this->load->library('cfpdf');
-            $pdf=new FPDF('P','cm','A4');
-            $pdf->AddPage();
-    
-            $pdf->SetFont('Arial','B','C');
-            $pdf->SetFontSize(16);
-            $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-            $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-            $pdf->text(7.4, 2.7,'LAPORAN BARANG',0,1,'C');
-            $pdf->SetFont('Arial','B','C');
-            $pdf->SetFontSize(12);
-            $pdf->setLineWidth(0.05);
-            $pdf->Cell(15);
-            $pdf->Cell(4, 2, date('d-M-y'), 1,1,'C');
-            $pdf->SetFont('Arial','B','C');
-            $pdf->setLineWidth(0.08);
-            $pdf->Line(21,3.5,0,3.5);
-            $pdf->setLineWidth(0.05);
-            $pdf->Ln(2);
-            $pdf->SetFontSize(12);
-            $pdf->Cell(2.3);
-            $pdf->Cell(1, 1, 'No', 1,0,'C');
-            $pdf->Cell(3, 1, 'Nama Barang', 1,0,'C');
-            $pdf->Cell(3, 1, 'Jenis Barang', 1,0,'C');
-            $pdf->Cell(4, 1, 'Harga', 1,0,'C');
-            $pdf->Cell(3, 1, 'Stok', 1,1,'C');
-    
-            // tampilkan dari database
-            $pdf->SetFont('Arial','','L');
-            $data=  $this->model_barang->tampil_data();
-            $no=1;
-            $total=0;
-            foreach ($data->result() as $r)
-            {
-                $pdf->Cell(2.3);
-                $pdf->Cell(1, 1, $no, 1,0,'C');
-                $pdf->Cell(3, 1, $r->nama_barang, 1,0,'C');
-                $pdf->Cell(3, 1, $r->jenis_barang, 1,0,'C');
-                $pdf->Cell(4, 1,'Rp '.$r->harga, 1,0,'R');
-                $pdf->Cell(3, 1, $r->stok, 1,1,'C');
-                $no++;
-            }
-            // end
-           
-            $pdf->Output();
-        }
-        else
-        {
-            redirect('auth/login');
-        }
-       
-    }
-
-    function allpdfoff()
-    {
-        if($_SESSION['level']==1)
-        {
-            $this->load->library('cfpdf');
-            $pdf=new FPDF('P','cm','A4');
-            $pdf->AddPage();
-    
-            $pdf->SetFont('Arial','B','C');
-            $pdf->SetFontSize(16);
-            $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-            $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-            $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
-            $pdf->SetFont('Arial','B','C');
-            $pdf->SetFontSize(12);
-            $pdf->setLineWidth(0.05);
-            $pdf->Cell(15);
-            $pdf->Cell(4, 2, date('d-M-y'), 1,1,'C');
-            $pdf->SetFont('Arial','B','C');
-            $pdf->setLineWidth(0.08);
-            $pdf->Line(21,3.5,0,3.5);
-            $pdf->setLineWidth(0.05);
-            $pdf->Ln(2);
-            $pdf->SetFontSize(12);
-            $pdf->Cell(2);
-            $pdf->Cell(1, 1, 'No', 1,0,'C');
-            $pdf->Cell(5, 1, 'Tanggal Transaksi', 1,0,'C');
-            $pdf->Cell(4, 1, 'Id Pembeli', 1,0,'C');
-            $pdf->Cell(5, 1, 'Total Transaksi', 1,1,'C');
-            // tampilkan dari database
-            $pdf->SetFont('Arial','','L');
-            $data=  $this->model_transaksi->laporan_default_offline();
-            $no=1;
-            $total=0;
-            foreach ($data->result() as $r)
-            {
-                $pdf->Cell(2);
-                $pdf->Cell(1, 1, $no, 1,0,'C');
-                $pdf->Cell(5, 1, $r->tanggal, 1,0,'C');
-                $pdf->Cell(4, 1, $r->id_user, 1,0,'C');
-                $pdf->Cell(5, 1,'Rp '.$r->jumlahtotal, 1,1,'R');
-                $no++;
-                $total=$total+$r->jumlahtotal;
-            }
-            // end
-            $pdf->Cell(2);
-            $pdf->Cell(10,1,'Total',1,0,'R');
-            $pdf->Cell(5,1,'Rp '.$total,1,0,'R');
-            $pdf->Output();
-        }
-        else
-        {
-            redirect('auth/login');
-        }
-       
-    }
-
     function getdetailtransaksi()
     {
         if($_SESSION['level']==1)

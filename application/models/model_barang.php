@@ -123,7 +123,7 @@ class model_barang extends ci_model{
 
     function baranglaris()
     {
-        $query= "SELECT*FROM barang_laris where month(tanggal)=month(now()) and year(tanggal)=year(now())";
+        $query= "SELECT*FROM barang_laris";
         return $this->db->query($query);
     }
     
