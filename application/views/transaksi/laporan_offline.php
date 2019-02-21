@@ -27,7 +27,7 @@
                                     <button style="margin-left: 10px;" class="btn btn-primary btn-sm" type="submit" name="submit">Tampilkan</button>
                                     <?php if ($_SESSION['userdata']->leveladmin == 1) {?>
                                     <button style="margin-left: 5px;" class="btn btn-primary btn-sm" type="submit" name="cetak">Cetak</button>
-                                    <a style="margin-left: 5px; color:white" href="<?php echo base_url().'transaksi/allpdfoff'?>" target="_blank" class="btn btn-primary btn-sm" name="cetak">Cetak Semua</a>
+                                    <a style="margin-left: 5px; color:white" href="<?php echo base_url().'transaksi/laporanMpdf_offline'?>" target="_blank" class="btn btn-primary btn-sm" name="cetak">Cetak Semua</a>
                                     <?php }?>
                                 </tr>
                                 </table>
