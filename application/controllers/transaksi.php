@@ -171,8 +171,8 @@ class transaksi extends ci_controller{
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(16);
         $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
+        $pdf->text(9, 2,'TOKO LINTANG',0,1,'C');
+        $pdf->text(7, 2.7,'LAPORAN PENJUALAN OLINE',0,1,'C');
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(12);
         $pdf->setLineWidth(0.05);
@@ -288,7 +288,7 @@ class transaksi extends ci_controller{
         $pdf->SetFontSize(16);
         $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
         $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(6, 2.7,'LAPORAN PENJUALAN ONLINE',0,1,'C');
+        $pdf->text(6, 2.7,'LAPORAN BARANG LARIS',0,1,'C');
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(12);
         $pdf->setLineWidth(0.05);
@@ -402,8 +402,8 @@ class transaksi extends ci_controller{
             $pdf->SetFont('Arial','B','C');
             $pdf->SetFontSize(16);
             $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-            $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-            $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
+            $pdf->text(9, 2,'TOKO LINTANG',0,1,'C');
+            $pdf->text(7, 2.7,'LAPORAN PENJUALAN OFLINE',0,1,'C');
             $pdf->SetFont('Arial','B','C');
             $pdf->SetFontSize(12);
             $pdf->setLineWidth(0.05);
@@ -418,7 +418,7 @@ class transaksi extends ci_controller{
             $pdf->Cell(2);
             $pdf->Cell(1, 1, 'No', 1,0,'C');
             $pdf->Cell(5, 1, 'Tanggal Transaksi', 1,0,'C');
-            $pdf->Cell(4, 1, 'Id Pembeli', 1,0,'C');
+            $pdf->Cell(4, 1, 'Id Operator', 1,0,'C');
             $pdf->Cell(5, 1, 'Total Transaksi', 1,1,'C');
             // tampilkan dari database
             $pdf->SetFont('Arial','','L');
@@ -491,8 +491,8 @@ class transaksi extends ci_controller{
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(16);
         $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
+        $pdf->text(9, 2,'TOKO LINTANG',0,1,'C');
+        $pdf->text(7, 2.7,'LAPORAN PENJUALAN ONLINE',0,1,'C');
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(12);
         $pdf->setLineWidth(0.05);
@@ -540,8 +540,8 @@ class transaksi extends ci_controller{
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(16);
         $pdf->image(base_url().'assets/img/lintang.png',1,0.4,4);
-        $pdf->text(8, 2,'TOKO LINTANG',0,1,'C');
-        $pdf->text(7, 2.7,'LAPORAN PENJUALAN',0,1,'C');
+        $pdf->text(9, 2,'TOKO LINTANG',0,1,'C');
+        $pdf->text(7, 2.7,'LAPORAN PENJUALAN OFLINE',0,1,'C');
         $pdf->SetFont('Arial','B','C');
         $pdf->SetFontSize(12);
         $pdf->setLineWidth(0.05);
@@ -556,7 +556,7 @@ class transaksi extends ci_controller{
         $pdf->Cell(2);
         $pdf->Cell(1, 1, 'No', 1,0,'C');
         $pdf->Cell(5, 1, 'Tanggal Transaksi', 1,0,'C');
-        $pdf->Cell(4, 1, 'Id Pembeli', 1,0,'C');
+        $pdf->Cell(4, 1, 'Id Operator', 1,0,'C');
         $pdf->Cell(5, 1, 'Total Transaksi', 1,1,'C');
         // tampilkan dari database
         $pdf->SetFont('Arial','','L');
