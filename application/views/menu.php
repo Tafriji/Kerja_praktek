@@ -80,17 +80,17 @@
                             </a>
                         </li>
                         <li class="sidebar_nav sidebarnew" style="padding:10px;">
-                            <a href="<?php echo base_url().'transaksi/laporanbarang'?>" target="_blank" style="color : white">
+                            <a href="<?php echo base_url().'transaksi/laporanMpdf_cetakbarang'?>" target="_blank" style="color : white">
                                 <span class="hide-menu"> Cetak Barang</span>
                             </a>
                         </li>
                         <li class="sidebar_nav sidebarnew" style="padding:10px;">
-                            <a  href="<?php echo base_url().'transaksi/laporanpembelian'?>" target="_blank"  style="color : white">
+                            <a  href="<?php echo base_url().'transaksi/laporanMpdf_pembelian'?>" target="_blank"  style="color : white">
                                 <span class="hide-menu"> Laporan Pembelian</span>
                             </a>
                         </li>
                         <li class="sidebar_nav sidebarnew" style="padding:10px;">
-                            <a href="<?php echo base_url().'transaksi/laris'?>" target="_blank" style="color : white">
+                            <a href="<?php echo base_url().'transaksi/laporanMpdf_laris'?>" target="_blank" style="color : white">
                                 <span class="hide-menu"> Laporan Barang Laris</span>
                             </a>
                         </li>
