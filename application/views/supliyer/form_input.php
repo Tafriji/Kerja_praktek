@@ -13,7 +13,7 @@
                             <div class="panel-body">
                                 <?php echo form_open('supliyer/post'); ?>
                                 <div class="form-group">
-                                    <label>Nama Supliyer</label>
+                                    <label>Nama Supplier</label>
                                     <input id="inputnamasupliyer" type="text" class="form-control" name="nama" placeholder="nama lengkap">
                                 </div>
                                 <div class="form-group">

@@ -22,7 +22,7 @@
                         </li>
                         <li class="sidebar_nav sidebarnew" style="padding:10px;">
                             <a  onclick="page('6')" href="#" style="color : white"><i style="color:white;" ></i>
-                                <span class="hide-menu"> Data Supliyer</span>
+                                <span class="hide-menu"> Data Supplier</span>
                             </a>
                         </li>
                     

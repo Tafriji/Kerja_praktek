@@ -2,7 +2,7 @@
                     <div class="col-md-12">
                     <img style="display: block;margin-left: auto;margin-right: auto; width: 200px;" src="<?php echo base_url()?>assets/img/lintang.png">
                     <h3 align="center" class="page-header">
-                           TOKO LINTANG <br>Data Supliyer
+                           TOKO LINTANG <br>Data Supplier
                         </h3>
                     </div>
                 </div> 
@@ -20,7 +20,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Nama Supliyer</th>
+                                                <th>Nama Supplier</th>
                                                 <th>Alamat</th>
                                                 <th>No Telp</th>
                                                 <th>Aksi</th>

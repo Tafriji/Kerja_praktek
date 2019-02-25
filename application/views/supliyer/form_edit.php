@@ -14,7 +14,7 @@
                                 <?php echo form_open('supliyer/edit'); ?>
                                 <input type="hidden" value="<?php echo $record['id_supliyer']?>" name="id">
                                 <div class="form-group">
-                                    <label>Nama Supliyer</label>
+                                    <label>Nama Supplier</label>
                                     <input type="text" class="form-control" name="nama" placeholder="nama lengkap"  value="<?php echo $record['nama']?>">
                                 </div>
                                 <div class="form-group">
