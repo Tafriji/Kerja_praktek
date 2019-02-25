@@ -47,6 +47,27 @@
                                         <?php $no++; } ?>
                                         </tbody>
                                     </table>
+                                    <br><br>
+                                    <table style="width: 100%; margin-left: 75%;">
+                                        <tbody>
+                                            <tr class="gradeU">
+                                                <td align="center">Yogyakarta, <?= date('d-M-Y');?></td>
+                                            </tr>
+                                            <tr class="gradeU">
+                                
+                                                <td align="center">  Admin</td>
+                                            </tr>
+                                            <tr class="gradeU">
+                            
+                                                <td align="center"> <br></td>
+                                            </tr>
+                                            <tr class="gradeU">
+                           
+                                                <td align="center">  <?= $_SESSION['userdata']->id_user?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                   
                                 </div>
                                 <!-- /. TABLE  -->
                             </div>
